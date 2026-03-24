@@ -31,6 +31,14 @@ app.get("/test", (req, res) => {
 	* instead of hardcoding the endpoint, try and pull it from the request?????
 */
 
+app.get("/", (req, res) => {
+	let currentEndpoint = req.path
+	res.status(201).json({
+		message: `This is the ${currentEndpoint} endpoint`,
+		status: "The server is running"
+	})
+})
+
 // function that creates a listener on said socket (host + port)
 app.listen(PORT, HOST, () => {
 	console.log(`[sever] listening on ${HOST}:${PORT}`)
